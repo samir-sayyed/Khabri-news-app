@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Khabari</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="khabri">Khabri</string>
+    <string name="search_for_news">Search for news</string>
+</resources>
