@@ -19,6 +19,7 @@ class NewsHeadingListFragment : BaseFragment<FragmentNewsHeadingListBinding, Hom
     private var mHeadingsAdapter: HeadingsAdapter? = null
     private var mHeadingList: ArrayList<Article> = arrayListOf()
 
+
     override fun initApiCalls() {
         super.initApiCalls()
         showLoadingDialog()
@@ -45,9 +46,11 @@ class NewsHeadingListFragment : BaseFragment<FragmentNewsHeadingListBinding, Hom
     private fun setListener() {
         viewBinding?.swipeView?.setOnRefreshListener {
             callApi()
+            addCrashlyticsAnalyticsLogs("swipe", "News refresh")
         }
 
         mHeadingsAdapter?.listener = { article ->
+            addCrashlyticsAnalyticsLogs("on_click", "News item")
             findNavController().navigate(
                 HomeFragmentDirections.actionHomeFragmentToArticleDetailsFragment(
                     article
@@ -56,6 +59,7 @@ class NewsHeadingListFragment : BaseFragment<FragmentNewsHeadingListBinding, Hom
         }
 
         viewBinding?.searchEditText?.doAfterTextChanged { text ->
+            addCrashlyticsAnalyticsLogs("on_text_change", "Search news edit text")
             if (text?.isNotEmpty() == true) {
                 mHeadingsAdapter?.updateList(mHeadingList.filter { heading ->
                     heading.title?.contains(
