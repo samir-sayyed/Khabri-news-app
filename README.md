@@ -1,7 +1,5 @@
 # Khabri-news app
 
-![Khabri-news app logo](link_to_your_logo.png)
-
 Khabri-news app is an Android application that allows users to access the latest news articles from various categories. It uses the NewsAPI to fetch the news data and offers features like news category selection, search, offline usage, and periodic notifications of the latest news.
 
 ## Features
